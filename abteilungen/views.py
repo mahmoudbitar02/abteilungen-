@@ -25,3 +25,8 @@ class PostUpdate(UpdateView):
     model=abteilungen
     fields = ['titel', 'content', 'image']  
     success_url = '/blog/'
+
+
+class PostDelete(DeleteView):  
+    model=abteilungen 
+    success_url = '/blog/'
