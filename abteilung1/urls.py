@@ -17,12 +17,14 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from abteilungen.views import Postlist, Postdetail
+from abteilungen.views import Postlist, Postdetail, PostCreate, PostUpdate
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', Postlist.as_view()),
-    path('blog/<int:pk>', Postdetail.as_view())
+    path('blog/<int:pk>', Postdetail.as_view()),
+    path('blog/create', PostCreate.as_view()),
+    path('blog/<int:pk>/edit', PostUpdate.as_view())
 ]
 
 

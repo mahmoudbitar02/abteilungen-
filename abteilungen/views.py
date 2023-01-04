@@ -5,6 +5,7 @@ from .models import abteilungen
 
 
 from django.views.generic import ListView , DetailView
+from django.views.generic.edit import UpdateView, CreateView, DeleteView
 
 class Postlist(ListView):
     model=abteilungen
@@ -12,3 +13,15 @@ class Postlist(ListView):
 
 class Postdetail(DetailView):
     model = abteilungen
+    
+
+class PostCreate(CreateView):  
+    model=abteilungen
+    fields = ['titel', 'content', 'image']  
+    success_url = '/blog/'
+
+
+class PostUpdate(UpdateView):  
+    model=abteilungen
+    fields = ['titel', 'content', 'image']  
+    success_url = '/blog/'
